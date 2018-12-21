@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,10 +21,11 @@ public class RoleUserEntity {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@NotNull(message="El nombre del role no puede ser nulo")
 	@Column(name="role")
 	private String role;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="user_id",nullable=false)
 	private UserEntity user;
 
 }

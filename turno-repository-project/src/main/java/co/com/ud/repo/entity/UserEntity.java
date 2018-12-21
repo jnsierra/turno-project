@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -28,10 +29,13 @@ public class UserEntity implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@NotNull(message="El usuario no puede ser nulo")
 	@Column(name = "username")
 	private String username;
+	@NotNull(message="El password no puede ser nulo")
 	@Column(name = "password")
 	private String password;
+	@NotNull(message = "El usuario debe tener por lo menos un role")
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<RoleUserEntity> roles;
 

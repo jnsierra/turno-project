@@ -1,6 +1,6 @@
 package co.com.ud.bussines.user;
 
-import co.com.ud.repo.entity.RoleUserEntity;
+import co.com.ud.repo.entity.RoleEntity;
 
 public interface IRoleUserService {
 	/**
@@ -8,6 +8,6 @@ public interface IRoleUserService {
 	 * @param role
 	 * @return
 	 */
-	RoleUserEntity save(RoleUserEntity role);
+	RoleEntity save(RoleEntity role);
 
 }
